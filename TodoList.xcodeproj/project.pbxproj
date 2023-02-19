@@ -24,6 +24,7 @@
 		E794DE9B299D34B200F980AC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794DE9A299D34B200F980AC /* Task.swift */; };
 		E79CF139299D4A6700B41BE8 /* TasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79CF138299D4A6700B41BE8 /* TasksRepository.swift */; };
 		E7BDD47C29A262B7005E02B8 /* TaskListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDD47B29A262B7005E02B8 /* TaskListViewData.swift */; };
+		E7BDD48029A2917B005E02B8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E7BDD47F29A2917B005E02B8 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E79CF138299D4A6700B41BE8 /* TasksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksRepository.swift; sourceTree = "<group>"; };
 		E7BDD47B29A262B7005E02B8 /* TaskListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewData.swift; sourceTree = "<group>"; };
 		E7BDD47E29A27E7E005E02B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E7BDD47F29A2917B005E02B8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		E72706792999610200450B0A = {
 			isa = PBXGroup;
 			children = (
+				E7BDD47F29A2917B005E02B8 /* .gitignore */,
 				E7BDD47E29A27E7E005E02B8 /* README.md */,
 				E72706842999610200450B0A /* TodoList */,
 				E72706832999610200450B0A /* Products */,
@@ -252,6 +255,7 @@
 				E72706922999610400450B0A /* LaunchScreen.storyboard in Resources */,
 				E727068F2999610400450B0A /* Assets.xcassets in Resources */,
 				E727068D2999610200450B0A /* Main.storyboard in Resources */,
+				E7BDD48029A2917B005E02B8 /* .gitignore in Resources */,
 				E792A4F029A24B5B00BE8974 /* TaskListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
