@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class SortedTaskManagerDecorator: ITaskManager {
+/// Предоставляет список заданий, отсортированных по приоритету.
+final class OrderedTaskManager: ITaskManager {
 	private let taskManager: ITaskManager
 	
 	init(taskManager: ITaskManager) {
@@ -25,7 +26,7 @@ final class SortedTaskManagerDecorator: ITaskManager {
 	func getCompleted() -> [Task] {
 		sortByPriority(taskManager.getCompleted())
 	}
-
+	
 	func getNotCompleted() -> [Task] {
 		sortByPriority(taskManager.getNotCompleted())
 	}

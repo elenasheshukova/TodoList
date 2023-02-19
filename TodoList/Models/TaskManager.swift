@@ -8,14 +8,25 @@
 import Foundation
 
 protocol ITaskManager {
+	/// Добавить список задач
+	/// - Parameter tasks: список задач
 	func addTasks(_ tasks: [Task])
+	
+	/// Получить список всех задач
+	/// - Returns: список задач
 	func getAll() -> [Task]
+	
+	/// Получить список выполненных задач
+	/// - Returns: список задач
 	func getCompleted() -> [Task]
+	
+	/// Получить список незавершенных задач
+	/// - Returns: список задач
 	func getNotCompleted()-> [Task]
 }
 
+/// Предоставляет список задач.
 class TaskManager: ITaskManager {
-	
 	private var list: [Task] = []
 	
 	func addTask(_ task: Task) {

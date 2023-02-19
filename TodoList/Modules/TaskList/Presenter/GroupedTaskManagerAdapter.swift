@@ -7,11 +7,19 @@
 
 import Foundation
 
+///Протокол
 protocol IGroupedTaskManagerAdapter {
+	/// Получить список секций
+	/// - Returns: список заголовков секций
 	func getSectionsTitles() -> [String]
-	func getTasksForSections(title: String) -> [Task]
+	
+	/// Получить список задач для секции
+	/// - Parameter title: заголовок секции
+	/// - Returns: список задач
+	func getTasksForSections(title: String?) -> [Task]
 }
 
+/// Группирует задачи на основании их статусов
 final class GroupedTaskManagerAdapter : IGroupedTaskManagerAdapter {
 	private let taskManager: ITaskManager
 	
@@ -20,17 +28,21 @@ final class GroupedTaskManagerAdapter : IGroupedTaskManagerAdapter {
 	}
 	
 	func getSectionsTitles() -> [String] {
-        Status.allCases.map { $0.rawValue }
+		Status.allCases.map { $0.rawValue }
 	}
-    
-    func getTasksForSections(title: String) -> [Task] {
-        guard let status = Status(rawValue: title) else { return [] }
-        
-        switch status {
-        case .completed:
-            return taskManager.getCompleted()
-        case .notCompleted:
-            return taskManager.getNotCompleted()
-        }
-    }
+	
+	func getTasksForSections(title: String?) -> [Task] {
+		guard let title = title else {
+			return taskManager.getAll()
+		}
+		
+		guard let status = Status(rawValue: title) else { return [] }
+		
+		switch status {
+		case .completed:
+			return taskManager.getCompleted()
+		case .notCompleted:
+			return taskManager.getNotCompleted()
+		}
+	}
 }

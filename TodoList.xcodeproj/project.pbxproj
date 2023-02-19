@@ -16,7 +16,7 @@
 		E727069A2999660F00450B0A /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72706992999660F00450B0A /* TaskManager.swift */; };
 		E727069C2999676B00450B0A /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727069B2999676B00450B0A /* TaskTableViewCell.swift */; };
 		E727069E299977A800450B0A /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E727069D299977A800450B0A /* TaskTableViewCell.xib */; };
-		E7912F3C299D7D0200B5ADBC /* TaskManagerDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7912F3B299D7D0200B5ADBC /* TaskManagerDecorator.swift */; };
+		E7912F3C299D7D0200B5ADBC /* OrderedTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7912F3B299D7D0200B5ADBC /* OrderedTaskManager.swift */; };
 		E792A4EA299EB45600BE8974 /* GroupedTaskManagerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E792A4E9299EB45600BE8974 /* GroupedTaskManagerAdapter.swift */; };
 		E792A4EC29A20FAF00BE8974 /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E792A4EB29A20FAF00BE8974 /* TaskListPresenter.swift */; };
 		E792A4EE29A2453900BE8974 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E792A4ED29A2453900BE8974 /* ModuleBuilder.swift */; };
@@ -38,7 +38,7 @@
 		E72706992999660F00450B0A /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		E727069B2999676B00450B0A /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		E727069D299977A800450B0A /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
-		E7912F3B299D7D0200B5ADBC /* TaskManagerDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerDecorator.swift; sourceTree = "<group>"; };
+		E7912F3B299D7D0200B5ADBC /* OrderedTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedTaskManager.swift; sourceTree = "<group>"; };
 		E792A4E9299EB45600BE8974 /* GroupedTaskManagerAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedTaskManagerAdapter.swift; sourceTree = "<group>"; };
 		E792A4EB29A20FAF00BE8974 /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
 		E792A4ED29A2453900BE8974 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
@@ -46,6 +46,7 @@
 		E794DE9A299D34B200F980AC /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E79CF138299D4A6700B41BE8 /* TasksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksRepository.swift; sourceTree = "<group>"; };
 		E7BDD47B29A262B7005E02B8 /* TaskListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewData.swift; sourceTree = "<group>"; };
+		E7BDD47E29A27E7E005E02B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		E72706792999610200450B0A = {
 			isa = PBXGroup;
 			children = (
+				E7BDD47E29A27E7E005E02B8 /* README.md */,
 				E72706842999610200450B0A /* TodoList */,
 				E72706832999610200450B0A /* Products */,
 			);
@@ -167,7 +169,7 @@
 			children = (
 				E792A4EB29A20FAF00BE8974 /* TaskListPresenter.swift */,
 				E792A4E9299EB45600BE8974 /* GroupedTaskManagerAdapter.swift */,
-				E7912F3B299D7D0200B5ADBC /* TaskManagerDecorator.swift */,
+				E7912F3B299D7D0200B5ADBC /* OrderedTaskManager.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -271,7 +273,7 @@
 				E727069A2999660F00450B0A /* TaskManager.swift in Sources */,
 				E794DE9B299D34B200F980AC /* Task.swift in Sources */,
 				E79CF139299D4A6700B41BE8 /* TasksRepository.swift in Sources */,
-				E7912F3C299D7D0200B5ADBC /* TaskManagerDecorator.swift in Sources */,
+				E7912F3C299D7D0200B5ADBC /* OrderedTaskManager.swift in Sources */,
 				E72706882999610200450B0A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

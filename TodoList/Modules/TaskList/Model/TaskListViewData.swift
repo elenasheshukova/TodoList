@@ -7,16 +7,17 @@
 
 import Foundation
 
-class TaskListViewData {
-    var sections: [TaskSection] = []
+/// Модель данных для TaskListViewController
+final class TaskListViewData {
+	var sections: [TaskSection] = []
 }
 
-class TaskSection {
-    var title: String
-    var tasks: [Task]
-    
-    init(title: String, tasks: [Task]) {
-        self.title = title
-        self.tasks = tasks
-    }
+final class TaskSection {
+	var title: String
+	var tasks: [Task]
+	
+	init(title: String, tasks: [Task]) {
+		self.title = title
+		self.tasks = tasks
+	}
 }

@@ -11,7 +11,7 @@ protocol ITaskTableViewCell {
 	func changeStatus(taskId: UUID, status: Status)
 }
 
-class TaskTableViewCell: UITableViewCell {
+final class TaskTableViewCell: UITableViewCell {
 	
 	static let identifier = "TaskTableViewCell"
 	
@@ -33,7 +33,7 @@ class TaskTableViewCell: UITableViewCell {
 		let uncheckedImage = UIImage(systemName: "circle")!
 		statusButton.setImage(checkedImage, for: UIControl.State.selected)
 		statusButton.setImage(uncheckedImage, for: UIControl.State.normal)
-        prepareForReuse()
+		prepareForReuse()
 	}
 	
 	override func prepareForReuse() {
@@ -71,7 +71,7 @@ class TaskTableViewCell: UITableViewCell {
 	
 	@IBAction func changeStatus(_ sender: UIButton) {
 		guard let task = task else { return }
-        
-        delegate?.changeStatus(taskId: task.id, status: !statusButton.isSelected ? .completed : .notCompleted)
+		
+		delegate?.changeStatus(taskId: task.id, status: !statusButton.isSelected ? .completed : .notCompleted)
 	}
 }
