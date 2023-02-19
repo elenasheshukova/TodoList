@@ -8,9 +8,7 @@
 import Foundation
 
 protocol ITaskManager {
-//	func addTask(_ task: Task)
 	func addTasks(_ tasks: [Task])
-//	func deleteTask(_ task: Task)
 	func getAll() -> [Task]
 	func getCompleted() -> [Task]
 	func getNotCompleted()-> [Task]
