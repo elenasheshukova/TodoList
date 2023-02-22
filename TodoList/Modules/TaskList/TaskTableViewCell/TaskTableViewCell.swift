@@ -20,7 +20,7 @@ final class TaskTableViewCell: UITableViewCell {
 	}
 	
 	var delegate: ITaskTableViewCell?
-	private weak var task: Task?
+	private var task: TaskListModels.ViewModel.Task?
 	
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -43,21 +43,18 @@ final class TaskTableViewCell: UITableViewCell {
 		backgroundColor = .clear
 	}
 	
-	func configure(task: Task){
+	func configure(task: TaskListModels.ViewModel.Task){
 		self.task = task
 		
-		nameLabel.text = task.title
-		statusButton.isSelected = task.status == .completed
-		
-		if let importantTask = task as? ImportantTask {
-			let formatter = DateFormatter()
-			formatter.dateStyle = .medium
-			dateLabel.text = formatter.string(from: importantTask.date)
-			
-			if importantTask.date < Date() && importantTask.status != .completed {
-				backgroundColor = .systemPink.withAlphaComponent(0.2)
-			}
-			
+		switch task {
+		case .regularTask(let regularTask):
+			nameLabel.text = regularTask.title
+			statusButton.isSelected = regularTask.status == .completed
+		case .importantTask(let importantTask):
+			nameLabel.text = importantTask.title
+			statusButton.isSelected = importantTask.status == .completed
+			dateLabel.text = importantTask.date
+			backgroundColor = importantTask.isOverdue ? .systemPink.withAlphaComponent(0.2) : .white
 			switch importantTask.priority {
 			case .high:
 				nameLabel.textColor = .red
@@ -71,7 +68,11 @@ final class TaskTableViewCell: UITableViewCell {
 	
 	@IBAction func changeStatus(_ sender: UIButton) {
 		guard let task = task else { return }
-		
-		delegate?.changeStatus(taskId: task.id, status: !statusButton.isSelected ? .completed : .notCompleted)
+		switch task {
+		case .regularTask(let regularTask):
+			delegate?.changeStatus(taskId: regularTask.id, status: !statusButton.isSelected ? .completed : .notCompleted)
+		case .importantTask(let importantTask):
+			delegate?.changeStatus(taskId: importantTask.id, status: !statusButton.isSelected ? .completed : .notCompleted)
+		}
 	}
 }

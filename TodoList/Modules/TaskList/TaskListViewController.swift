@@ -7,22 +7,34 @@
 
 import UIKit
 
-protocol ITaskListView {
+
+protocol ITaskListViewController: AnyObject {
 	/// отобразить список задач
-	/// - Parameter viewData: сгруппированный список задач
-	func render(viewData: TaskListViewData)
+	/// - Parameter viewModel: сгруппированный список задач
+	func render(viewModel: TaskListModels.ViewModel)
 }
 
 final class TaskListViewController: UIViewController {
-	private var taskList: TaskListViewData = .init()
-	var presenter: ITaskListPresenter!
+	private var interactor: ITaskListInteractor?
+	
+	private var taskList: TaskListModels.ViewModel = .init(sections: [])
 	
 	@IBOutlet weak var tasksTable: UITableView!
+	
+	init(taskManager: ITaskManager) {
+		super.init(nibName: nil, bundle: nil)
+		let presenter = TaskListPresenter(view: self)
+		self.interactor = TaskListInteractor(presenter: presenter, taskManager: taskManager)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
-		presenter.showTaskList()
+		interactor?.showTaskList()
 	}
 	
 	private func setupUI() {
@@ -31,9 +43,9 @@ final class TaskListViewController: UIViewController {
 	}
 }
 
-extension TaskListViewController: ITaskListView {
-	func render(viewData: TaskListViewData){
-		taskList = viewData
+extension TaskListViewController: ITaskListViewController {
+	func render(viewModel: TaskListModels.ViewModel) {
+		taskList = viewModel
 		tasksTable.reloadData()
 	}
 }
@@ -61,6 +73,6 @@ extension TaskListViewController: UITableViewDataSource {
 
 extension TaskListViewController: ITaskTableViewCell {
 	func changeStatus(taskId: UUID, status: Status) {
-		presenter.changeTaskStatus(taskId: taskId, status: status)
+		interactor?.changeTaskStatus(request: TaskListModels.Request.changeTaskStatus(id: taskId, status: status))
 	}
 }
