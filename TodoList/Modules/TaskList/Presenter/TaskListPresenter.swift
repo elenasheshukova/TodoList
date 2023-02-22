@@ -21,7 +21,7 @@ protocol ITaskListPresenter {
 }
 
 final class TaskListPresenter : ITaskListPresenter {
-	private let view: ITaskListView
+	private weak var view: ITaskListView?
 	private var groupedTaskManager: IGroupedTaskManagerAdapter!
 	
 	required init(view: ITaskListView, taskManager: ITaskManager) {
@@ -40,7 +40,7 @@ final class TaskListPresenter : ITaskListPresenter {
 			let tasks = groupedTaskManager.getTasksForSections(title: title)
 			viewData.sections.append(TaskSection(title: title, tasks: tasks))
 		}
-		view.render(viewData: viewData)
+		view?.render(viewData: viewData)
 	}
 	
 	func changeTaskStatus(taskId: UUID, status: Status) {

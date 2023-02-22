@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ITaskListView {
+protocol ITaskListView: AnyObject {
 	/// отобразить список задач
 	/// - Parameter viewData: сгруппированный список задач
 	func render(viewData: TaskListViewData)
